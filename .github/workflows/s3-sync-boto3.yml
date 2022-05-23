@@ -19,3 +19,15 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
+    - uses: actions/checkout@v2
+      with:
+        ref: main
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3
+    - name: install
+      run: |
+        pip install boto3 requests pyjwt
+    - name: run
+      run: |
+        python .github/workflows/list.py
