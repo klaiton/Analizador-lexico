@@ -3,7 +3,7 @@ name: Upload Images
 on:
   push:
     branches:
-    - master
+    - main
 
 jobs:
   deploy:
